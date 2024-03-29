@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <script src="engine/libs/jquery.js"></script>
+	<script src="engine/libs/howler.js"></script>
+	<script src="engine/managers/gameloader.js"></script>
+	<script src="game/base/config.js"></script>
+	<script src="engine/sdk.js"></script>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body oncontextmenu="return false;">
+<script src="engine/managers/input.js"></script>
+<script src="engine/content/dtc.js"></script>
+<script src="engine/content/anim.js"></script>
+<script src="engine/content/gameobject.js"></script>
+<script src="engine/content/world.js"></script>
+<script src="engine/content/vector.js"></script>
+<script src="engine/content/component.js"></script>
+
+<script src="engine/engine.js"></script>
+
+<script src="game/base/sounds.js"></script>
+<script src="game/base/local.js"></script>
+<script src="game/base/game.js"></script>
+<script src="game/base/leaderboard.js"></script>
+<script src="game/base/settings.js"></script>
+<script src="game/base/advprompt.js"></script>
+<script src="game/base/moregames.js"></script>
+
+<script src="game/content/leaderbord_ui.js"></script>
+<script src="game/content/level.js"></script>
+<script src="game/content/bullet.js"></script>
+<script src="game/content/ball.js"></script>
+<script src="game/content/explode.js"></script>
+<script src="game/content/menu.js"></script>
+<script src="game/content/minigame.js"></script>
+
+<script src="game/maps/mappart.js"></script>
+<script src="game/maps/map.js"></script>
+<script src="game/maps/ring.js"></script>
+<script src="game/maps/custom.js"></script>
+
+<div id="scoreblock" style="display:none"><span id="score">0</span></div>
+<div id="levelup" translate="Difficulty Increased">Сложность увеличена</div>
+<div id="air" translate="Tap the screen if you're ready!">Нажми на экран, если ты готов!</div>
+<div class="overlay" style="display:none">
+      <div class="content" id="deadscr">
+					<p style="width:100%">
+						<span style="float:left;margin-right: 3vw;"><span translate="Score: ">Счёт: </span><span class="crecord">0</span></span>
+						<span style="float:right;margin-left: 3vw;">
+							<span translate="Record: ">Рекорд: </span><span class="record">0</span>
+							<span id="crown" onclick="showlb()"><img src="textures/crown.png"></span>
+						</span>
+					</p>
+					<span id="minigame">
+						<p><span translate="Available">Доступно</span>: <span id="balance">0</span>$</p>
+					</span>
+					<div>
+						<button onclick="PlayClick()" style="font-size:5vh; display: inline-block;animation: anim229 1s infinite;" translate="Play">Играть</button>
+						<div id="langselector" style="display: none;">
+							<div onclick="setlang('ru')">РУ</div>
+							<div onclick="setlang('en')">EN</div>
+						</div>
+					</div>
+					<p id="mapselector" style="display:none;"><img style="float:left" src="textures/arr2.png" onclick="leftmap()"><span translate="Map: ">Карта: </span><span id="ms_info" translate="random">случайная</span><img style="float:right" onclick="rightmap()" src="textures/arr3.png"></p>
+					<p class="moregamesbutton"><button translate="Recommended games" onclick="moregames('#deadscr')">Рекомендованные игры</button></p>
+					<span class="settings"></span>
+      </div>
+      <div class="content" id="pausem" style="display:none">
+          <h1 translate="Pause">Пауза</h1>
+					<p><span translate="Score: ">Счёт: </span><span class="crecord">0</span></p>
+					<p><span translate="Record: ">Рекорд: </span><span class="record">0</span></p>
+          <button onclick="TogglePause()" translate="Continue">Продолжить</button>
+					<p class="moregamesbutton"><button translate="Recommended games" onclick="moregames('#pausem')">Рекомендованные игры</button></p>
+					<span class="settings"></span>
+      </div>
+			<div class="content" id="moregames" style="display:none">
+				<p><button translate="Back" onclick="moregamesback()">Назад</button></p>
+			</div>
+</div>
+</body>
+</html>
